@@ -2,6 +2,7 @@
   const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
   const TAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
   const KURZ = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  const MON = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.'];
   const KRINGEL = '<svg viewBox="0 0 46 40" aria-hidden="true"><path d="M30 5C18 1 4 8 4 21c0 11 11 16 21 15 11-1 18-8 17-17C41 9 30 3 19 6"/></svg>';
 
   const heute = new Date(); heute.setHours(0, 0, 0, 0);
@@ -39,7 +40,7 @@
   function waehle(datum) {
     gewaehlt = datum;
     anzeige.classList.remove('leer');
-    anzeige.textContent = KURZ[datum.getDay()] + ', ' + datum.getDate() + '. ' + MONATE[datum.getMonth()] + ' ' + datum.getFullYear();
+    anzeige.textContent = KURZ[datum.getDay()] + ', ' + datum.getDate() + '. ' + MON[datum.getMonth()] + ' ' + datum.getFullYear();
     zeichne();
   }
 

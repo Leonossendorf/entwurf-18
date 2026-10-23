@@ -111,6 +111,8 @@ p { margin: 0 0 1em; }
 
 /* Formular auf der rechten Seite */
 .eintrag { padding-left: 50px; }
+.seite.rechts .kopfzeile { padding-left: 50px; }
+.eintrag input:focus-visible { outline-offset: 0; outline-width: 2px; }
 .zeile { display: block; position: relative; margin: 0 0 4px; min-height: 34px; border-bottom: 1px solid var(--linie); }
 .zeile.ohne { border-bottom: 0; }
 .zeile > span.lbl { display: block; font: 700 12px/1 "Alegreya Sans SC", sans-serif; letter-spacing: .14em; color: #8A7458; padding-top: 9px; }
@@ -258,7 +260,7 @@ section { scroll-margin-top: 80px; }
   .seite.links { border-radius: 4px 4px 0 0; box-shadow: inset 0 -10px 16px -12px rgba(80,50,20,.35); }
   .seite.rechts { border-radius: 0 0 4px 4px; box-shadow: none; border-top: 1px dashed #CDBB9D; }
   .seite.rechts::before { left: 34px; }
-  .eintrag { padding-left: 26px; }
+  .eintrag, .seite.rechts .kopfzeile { padding-left: 26px; }
   .baendchen { right: auto; left: 47%; height: 44px; }
   .tage button { height: 42px; font-size: 20px; }
   .zwei { grid-template-columns: 1fr; }
