@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Haus Räckers – Gaststätte & Saalbetrieb in Ottenstein (Entwurf)</title>
+<meta name="description" content="Unverbindlicher Entwurf: Saal, Kegelbahn, Biergarten und Partyservice von Haus Räckers in Ahaus-Ottenstein.">
+<link rel="preload" href="fonts/alegreya-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/kalam-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 34'%3E%3Cpath d='M3 16 20 3l17 13v16H3Z' fill='%238C3A2B'/%3E%3Cpath d='M16 32V22a4 4 0 0 1 8 0v10' fill='%23F6EFE2'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="entwurf-band"><b>Entwurf</b> · Unverbindlicher Entwurf von Leon Oßendorf, kein offizieller Auftritt von Haus Räckers.</div>
+
+<header class="kopf">
+  <div class="wrap">
+    <a class="marke" href="#top" aria-label="Haus Räckers, zum Seitenanfang">
+      <svg viewBox="0 0 40 34" aria-hidden="true">
+        <path d="M2 16.5 20 2.5l18 14" fill="none" stroke="#8C3A2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 14v18h28V14" fill="none" stroke="#8C3A2B" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M16.5 32v-8a3.5 3.5 0 0 1 7 0v8" fill="none" stroke="#34503F" stroke-width="2.4"/>
+        <path d="M10 19h4M26 19h4" stroke="#8C3A2B" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <span><b>Haus Räckers</b><small>Gaststätte & Saalbetrieb · Ottenstein</small></span>
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#feiern">Feiern</a>
+      <a href="#kegeln">Kegelbahn</a>
+      <a href="#partyservice">Partyservice</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn-gruen anfragen-btn" href="#terminbuch">Termin eintragen</a>
+    <a class="btn btn-gruen tel" href="tel:+49256181730">Anrufen</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: das Terminbuch auf der Theke -->
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Gaststätte & Saalbetrieb in Ahaus-Ottenstein</span>
+      <h1 id="h1">Haus Räckers <em>Hier feiert Ottenstein.</em></h1>
+      <p class="lead">Saal mit Bühne, Kegelbahn, Biergarten und Partyservice an der Vredener Straße. Ob Hochzeit, Kegelabend oder runder Geburtstag: Tragen Sie Ihren Wunschtermin gleich hier ins Terminbuch ein.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gruen" href="#terminbuch">Wunschtermin eintragen</a>
+        <a class="btn btn-hell" href="tel:+49256181730">02561 81730</a>
+      </div>
+      <ul class="fakten">
+        <li><span><span class="stern">4,6</span> bei Google, 80 Bewertungen</span></li>
+        <li>Saal mit Bühne</li>
+        <li>Kegelbahn</li>
+        <li>Partyservice</li>
+        <li>rollstuhlgerecht</li>
+      </ul>
+    </div>
+
+    <div class="buch" id="terminbuch">
+      <span class="baendchen" aria-hidden="true"></span>
+      <div class="seiten">
+        <!-- linke Seite: Kalender -->
+        <div class="seite links">
+          <div class="kopfzeile"><span>Terminbuch</span><span>Haus Räckers</span></div>
+          <div class="monat">
+            <button type="button" id="vor-zurueck" aria-label="Vorheriger Monat">‹</button>
+            <h2 id="monatsname" aria-live="polite">Monat</h2>
+            <button type="button" id="vor-weiter" aria-label="Nächster Monat">›</button>
+          </div>
+          <div class="wt" aria-hidden="true"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
+          <div class="tage" id="tage" role="grid" aria-label="Tag auswählen"></div>
+          <p class="notiz">Tippen Sie auf Ihren Wunschtag. <b>Eintragen geht jederzeit</b>, auch wenn die Gaststätte noch geschlossen hat.</p>
+          <p class="zeiten"><b>Lieber anrufen?</b> 02561 81730, Di und Do bis So ab 18&nbsp;Uhr.</p>
+        </div>
+        <!-- rechte Seite: Eintrag -->
+        <form class="seite rechts" id="eintrag" novalidate>
+          <div class="kopfzeile"><span>Ihr Eintrag</span><span id="seitenzahl">Anfrage</span></div>
+          <div class="eintrag">
+            <div class="zeile"><span class="lbl">Wunschtermin</span><div class="termin-anzeige leer" id="termin-anzeige">links einen Tag antippen</div></div>
+            <div class="zeile ohne"><span class="lbl" id="lbl-anlass">Anlass</span>
+              <div class="chips" role="group" aria-labelledby="lbl-anlass" data-gruppe="anlass" data-einzeln>
+                <button type="button" class="chip" aria-pressed="false">Hochzeit</button>
+                <button type="button" class="chip" aria-pressed="false">Geburtstag</button>
+                <button type="button" class="chip" aria-pressed="false">Jubiläum</button>
+                <button type="button" class="chip" aria-pressed="false">Kegelabend</button>
+                <button type="button" class="chip" aria-pressed="false">Vereinsfeier</button>
+                <button type="button" class="chip" aria-pressed="false">Kaffeetafel</button>
+                <button type="button" class="chip" aria-pressed="false">Anderes</button>
+              </div>
+            </div>
+            <div class="zwei">
+              <label class="zeile"><span class="lbl">Personen</span><input name="personen" inputmode="numeric" placeholder="ca. 60" autocomplete="off"></label>
+              <label class="zeile"><span class="lbl">Uhrzeit</span><input name="uhrzeit" placeholder="ab 15 Uhr" autocomplete="off"></label>
+            </div>
+            <div class="zeile ohne"><span class="lbl" id="lbl-was">Was Sie brauchen</span>
+              <div class="chips" role="group" aria-labelledby="lbl-was" data-gruppe="was">
+                <button type="button" class="chip" aria-pressed="false">Saal</button>
+                <button type="button" class="chip" aria-pressed="false">Kegelbahn</button>
+                <button type="button" class="chip" aria-pressed="false">Partyservice</button>
+                <button type="button" class="chip" aria-pressed="false">Biergarten</button>
+              </div>
+            </div>
+            <label class="zeile"><span class="lbl">Name</span><input name="name" autocomplete="name" placeholder="Ihr Name"></label>
+            <label class="zeile"><span class="lbl">Telefon oder E-Mail</span><input name="kontakt" autocomplete="tel" placeholder="für die Rückmeldung"></label>
+            <div class="eintragen">
+              <button class="btn btn-gruen" type="submit">Ins Terminbuch eintragen</button>
+              <small>Entwurf: Es wird nichts versendet.</small>
+            </div>
+            <p class="eingetragen-info" id="eingetragen-info" role="status"></p>
+          </div>
+          <div class="stempel" id="stempel" aria-hidden="true"><div>Eingetragen<span>Haus Räckers meldet sich</span></div></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEIERN -->
+<section class="abschnitt" id="feiern" aria-labelledby="h-feiern">
+  <div class="wrap">
+    <div class="kopf-text">
+      <span class="eyebrow">Feiern im Saal</span>
+      <h2 id="h-feiern">Vom Kegelabend bis zur Hochzeit.</h2>
+      <p>Der Saal bietet Platz für die ganze Gesellschaft, die Küche sorgt für das Essen. Suchen Sie sich Ihren Anlass aus, er landet direkt in Ihrem Eintrag.</p>
+    </div>
+    <div class="anlaesse">
+      <article class="anlass">
+        <figure><img src="img/festtafel.jpg" alt="Lange festlich gedeckte Tafel mit Blumen und Kerzen" loading="lazy" width="1600" height="1067"><span class="beispiel">Beispielbild</span></figure>
+        <div class="inhalt">
+          <h3>Hochzeit & Familienfeste</h3>
+          <blockquote>„Sogar ein paar Hochzeiten von unserem KC haben wir dort gefeiert.“<cite>Google-Bewertung</cite></blockquote>
+          <button class="mehr" type="button" data-anlass="Hochzeit" data-was="Saal">Hochzeit eintragen</button>
+        </div>
+      </article>
+      <article class="anlass">
+        <figure><img src="img/gedeckt.jpg" alt="Gedeckter Tisch mit Tellern, Gläsern und Kerzen" loading="lazy" width="1400" height="933"><span class="beispiel">Beispielbild</span></figure>
+        <div class="inhalt">
+          <h3>Geburtstag & Jubiläum</h3>
+          <blockquote>„Das Essen war sehr lecker und die Feier war sehr schön gemacht.“<cite>Google-Bewertung</cite></blockquote>
+          <button class="mehr" type="button" data-anlass="Geburtstag" data-was="Saal">Geburtstag eintragen</button>
+        </div>
+      </article>
+      <article class="anlass">
+        <figure><img src="img/buffet.jpg" alt="Buffet mit warmen Speisen in Wärmebehältern" loading="lazy" width="1400" height="933"><span class="beispiel">Beispielbild</span></figure>
+        <div class="inhalt">
+          <h3>Schulabschluss & Gruppen</h3>
+          <p>Der große Saal mit Buffet und Getränkeservice, so kennen ihn Abschlussklassen und Vereine.</p>
+          <button class="mehr" type="button" data-anlass="Vereinsfeier" data-was="Saal,Partyservice">Gruppenfeier eintragen</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DORFLEBEN -->
+<section class="abschnitt dorf" aria-labelledby="h-dorf">
+  <div class="wrap">
+    <div class="kopf-text">
+      <span class="eyebrow">Aus dem Dorfleben</span>
+      <h2 id="h-dorf">Der Saal, in dem Ottenstein feiert.</h2>
+      <p>Karneval, Kinderbütt, Feuerwehr: Wenn im Dorf etwas gefeiert wird, steht der Saal Räckers oft in der Zeitung. Und genau dieser Saal ist auch für Ihre Feier da.</p>
+    </div>
+    <div class="ausschnitte">
+      <article class="ausschnitt">
+        <div class="q"><span>Münsterland Zeitung</span><span>28.10.2022</span></div>
+        <h3>Sessionsauftakt der Burggeister</h3>
+        <p>„Anschließend wird im Saal Räckers zünftig gefeiert.“</p>
+      </article>
+      <article class="ausschnitt">
+        <div class="q"><span>Münsterland Zeitung</span><span>17.02.2025</span></div>
+        <h3>Kinderbüttnachmittag</h3>
+        <p>Restlos ausverkauft, der Saal „platzte aus allen Nähten“.</p>
+      </article>
+      <article class="ausschnitt">
+        <div class="q"><span>Münsterland Zeitung</span><span>08.02.2024</span></div>
+        <h3>Altweiber im Saal</h3>
+        <p>Der Umzug fiel ins Wasser, gefeiert wurde trotzdem: im Saal Räckers.</p>
+      </article>
+      <article class="ausschnitt">
+        <div class="q"><span>Google-Bewertung</span><span>Feuerwehr</span></div>
+        <h3>Verlosung der Feuerwehr</h3>
+        <p>„Alles sehr gut organisiert! … Niemand musste dursten!“</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- KEGELBAHN -->
+<section class="abschnitt kegel" id="kegeln" aria-labelledby="h-kegel">
+  <div class="wrap">
+    <div class="bahn" id="bahn" role="img" aria-label="Illustration: Kegelbahn mit neun Kegeln">
+      <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="bahnholz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9844D"/><stop offset=".5" stop-color="#C99660"/><stop offset="1" stop-color="#A06C37"/></linearGradient>
+          <linearGradient id="wand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B1A0F"/><stop offset="1" stop-color="#4A301C"/></linearGradient>
+          <radialGradient id="lampe" cx=".5" cy=".3" r=".55"><stop offset="0" stop-color="#FFE7B8" stop-opacity=".55"/><stop offset=".6" stop-color="#FFD58F" stop-opacity=".12"/><stop offset="1" stop-color="#FFD58F" stop-opacity="0"/></radialGradient>
+          <linearGradient id="spiegel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".35" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <radialGradient id="kegelk" cx=".32" cy=".35" r=".85"><stop offset="0" stop-color="#FFFEFA"/><stop offset=".5" stop-color="#F0E8D9"/><stop offset="1" stop-color="#A89A82"/></radialGradient>
+          <radialGradient id="kugelk" cx=".33" cy=".3" r=".78"><stop offset="0" stop-color="#8FAE98"/><stop offset=".45" stop-color="#3A5A46"/><stop offset="1" stop-color="#132019"/></radialGradient>
+          <filter id="holzkorn" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".004 .3" numOctaves="3" seed="5"/><feColorMatrix values="0 0 0 0 .25  0 0 0 0 .13  0 0 0 0 .04  0 0 0 .4 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+          <filter id="weich"><feGaussianBlur stdDeviation="3"/></filter>
+          <symbol id="kg" viewBox="0 0 40 110">
+            <path d="M20 2c6 0 8 6 8 12 0 7-4 11-4 16 0 6 10 18 10 40 0 20-6 34-14 38-8-4-14-18-14-38 0-22 10-34 10-40 0-5-4-9-4-16 0-6 2-12 8-12Z" fill="url(#kegelk)" stroke="#8D7E66" stroke-opacity=".35" stroke-width=".6"/>
+            <path d="M15 29.2h10" stroke="#A8322A" stroke-width="3.4" stroke-linecap="round"/><path d="M14.6 34.4h10.8" stroke="#A8322A" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M12 46c-3 8-4 20-2 34" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7" fill="none"/>
+          </symbol>
+        </defs>
+        <rect width="500" height="400" fill="#24170E"/>
+        <rect width="500" height="134" fill="url(#wand)"/>
+        <g stroke="#1B110A" stroke-opacity=".6"><path d="M0 40h500M0 88h500"/></g>
+        <path d="M165 130 L335 130 L480 400 L20 400 Z" fill="url(#bahnholz)"/>
+        <path d="M165 130 L335 130 L480 400 L20 400 Z" fill="#000" filter="url(#holzkorn)"/>
+        <g stroke="#7A4C22" stroke-opacity=".35" stroke-width="1">
+          <path d="M186 130 L78 400"/><path d="M207 130 L135 400"/><path d="M229 130 L193 400"/><path d="M250 130 L250 400"/><path d="M271 130 L307 400"/><path d="M293 130 L365 400"/><path d="M314 130 L422 400"/>
+        </g>
+        <path d="M165 130 L335 130 L480 400 L20 400 Z" fill="url(#spiegel)"/>
+        <path d="M20 400 L165 130 L150 130 L-10 400Z" fill="#150D07"/><path d="M480 400 L335 130 L350 130 L510 400Z" fill="#150D07"/>
+        <path d="M165 130h170" stroke="#E9C58C" stroke-opacity=".35" stroke-width="1.5"/>
+        <ellipse cx="250" cy="150" rx="210" ry="120" fill="url(#lampe)"/>
+        <g opacity=".35" filter="url(#weich)"><ellipse cx="250" cy="148" rx="12" ry="3.1" fill="#000"/><ellipse cx="228" cy="160" rx="14" ry="3.4" fill="#000"/><ellipse cx="272" cy="160" rx="14" ry="3.4" fill="#000"/><ellipse cx="206" cy="173" rx="15" ry="3.8" fill="#000"/><ellipse cx="250" cy="173" rx="15" ry="3.8" fill="#000"/><ellipse cx="294" cy="173" rx="15" ry="3.8" fill="#000"/><ellipse cx="228" cy="187" rx="17" ry="4.2" fill="#000"/><ellipse cx="272" cy="187" rx="17" ry="4.2" fill="#000"/><ellipse cx="250" cy="202" rx="18" ry="4.6" fill="#000"/></g>
+        <g>
+          <use href="#kg" x="238.6" y="86" width="22.9" height="62"/>
+          <use href="#kg" x="215.4" y="92" width="25.2" height="68"/>
+          <use href="#kg" x="259.4" y="92" width="25.2" height="68"/>
+          <use href="#kg" x="192.1" y="98" width="27.8" height="75"/>
+          <use href="#kg" x="236.1" y="98" width="27.8" height="75"/>
+          <use href="#kg" x="280.1" y="98" width="27.8" height="75"/>
+          <use href="#kg" x="212.7" y="104" width="30.7" height="83"/>
+          <use href="#kg" x="256.6" y="104" width="30.7" height="83"/>
+          <use href="#kg" x="233.0" y="110" width="34.0" height="92"/>
+        </g>
+        <g class="kugel"><ellipse cx="250" cy="384" rx="42" ry="8" fill="#000" opacity=".4"/><circle cx="250" cy="342" r="40" fill="url(#kugelk)"/><circle cx="238" cy="328" r="4.4" fill="#0E1712"/><circle cx="256" cy="326" r="4.4" fill="#0E1712"/><circle cx="248" cy="342" r="5" fill="#0E1712"/><path d="M223 322a36 36 0 0 1 20-14" stroke="#fff" stroke-opacity=".32" stroke-width="5" stroke-linecap="round" fill="none"/></g>
+      </svg>
+    </div>
+    <div>
+      <span class="eyebrow">Kegelbahn</span>
+      <h2 id="h-kegel">Alle neune bei Räckers.</h2>
+      <p style="margin-top:16px;color:var(--ink-2)">Manche Clubs kegeln hier schon sehr lange, einer „seit fast 15 Jahren“. Die Bahn gibt es für Ihren Kegelclub, den Geburtstag oder einen Abend mit Kollegen, gern mit Essen aus der Küche.</p>
+      <blockquote style="margin:22px 0 0;font:italic 500 21px/1.45 Alegreya,serif;color:var(--holz)">„Sehr leckeres Essen und nettes Personal! Unser Kegelclub fühlt sich super aufgehoben!“<cite style="display:block;font:400 14px Alegreya Sans,sans-serif;color:#8A7A6A;margin-top:6px;font-style:normal">Google-Bewertung</cite></blockquote>
+      <ul class="pills"><li>Kegelclub</li><li>Geburtstag</li><li>Abend mit Kollegen</li><li>mit Essen</li></ul>
+      <button class="btn btn-gruen" type="button" data-anlass="Kegelabend" data-was="Kegelbahn">Kegelabend eintragen</button>
+    </div>
+  </div>
+</section>
+
+<!-- PARTYSERVICE -->
+<section class="abschnitt party" id="partyservice" aria-labelledby="h-party">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Partyservice</span>
+      <h2 id="h-party">Im Saal oder bei Ihnen zu Hause.</h2>
+      <p style="margin-top:16px">Das Essen aus der Küche von Haus Räckers gibt es auch als Partyservice, für den Geburtstag im eigenen Garten oder die Feier im Vereinsheim. Ein Gast fand das Essen im Haus wie als Catering „klasse“.</p>
+      <div class="saison">
+        <b>Jetzt im Herbst: Grünkohlzeit</b>
+        <span>„Eine gute Adresse, um nach dem Boßeln leckeren Grünkohl zu essen.“ Google-Bewertung</span>
+      </div>
+      <button class="btn btn-gruen" style="background:#E7B98A;color:var(--holz-d);box-shadow:none" type="button" data-anlass="Anderes" data-was="Partyservice">Partyservice anfragen</button>
+    </div>
+    <figure><img src="img/buffet.jpg" alt="Buffet mit warmen Speisen" loading="lazy" width="1400" height="933"><span class="beispiel">Beispielbild</span></figure>
+  </div>
+</section>
+
+<!-- STIMMEN -->
+<section class="abschnitt" aria-labelledby="h-stimmen">
+  <div class="wrap">
+    <div class="kopf-text">
+      <span class="eyebrow">Was Gäste sagen</span>
+      <h2 id="h-stimmen">Super Kneipe, super Saal, super Essen.</h2>
+      <div class="bewertung"><b>4,6</b><span>von 5 Sternen bei Google, aus 80 Bewertungen</span></div>
+    </div>
+    <div class="stimmen-grid">
+      <figure class="stimme" style="margin:0"><p>„Wir kegeln dort seit fast 15 Jahren und uns würde es im Traum nicht einfallen wo anders hinzugehen.“</p><span>Google-Bewertung</span></figure>
+      <figure class="stimme" style="margin:0"><p>„Das Essen war sehr lecker und die Feier war sehr schön gemacht. Weiter so!“</p><span>Google-Bewertung</span></figure>
+      <figure class="stimme" style="margin:0"><p>„Super kneipe Super Saal Super Essen“</p><span>Google-Bewertung</span></figure>
+    </div>
+  </div>
+</section>
+
+<!-- HAUS -->
+<section class="abschnitt haus" aria-labelledby="h-haus" style="padding-top:0">
+  <div class="wrap">
+    <figure><img src="img/biergarten.jpg" alt="Biergarten mit Bänken und Liegestühlen unter Bäumen" loading="lazy" width="1000" height="1500"><span class="beispiel">Beispielbild</span></figure>
+    <div>
+      <span class="eyebrow">Das Haus</span>
+      <h2 id="h-haus">Alles unter einem Dach an der Vredener Straße.</h2>
+      <ul class="ausstattung">
+        <li><b>Saal mit Bühne</b><span>für Feiern, Versammlungen und Karneval</span></li>
+        <li><b>Kegelbahn</b><span>für Clubs und Gesellschaften</span></li>
+        <li><b>Gaststätte</b><span>Di und Do bis So ab 18 Uhr</span></li>
+        <li><b>Biergarten</b><span>für Sommerabende</span></li>
+        <li><b>Tagungsraum</b><span>für Besprechungen und Versammlungen</span></li>
+        <li><b>Rollstuhlgerecht</b><span>Eingang, Parkplatz und WC</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- KONTAKT -->
+<footer class="kontakt" id="kontakt">
+  <div class="wrap">
+    <div>
+      <h2>So erreichen Sie uns</h2>
+      <a class="gross" href="tel:+49256181730">02561 81730</a><br>
+      <span>Mobil <a href="tel:+491755525345">0175 5525345</a></span><br>
+      <a href="mailto:raeckers-erning@web.de">raeckers-erning@web.de</a>
+      <p style="margin-top:18px">Haus Räckers<br>Inh. Marlies Räckers-Erning<br>Vredener Str. 33<br>48683 Ahaus-Ottenstein</p>
+      <a class="btn btn-hell" style="margin-top:6px" href="https://www.google.com/maps/search/?api=1&query=Vredener+Str.+33,+48683+Ahaus-Ottenstein" target="_blank" rel="noopener">Route planen</a>
+    </div>
+    <div>
+      <h3 style="color:#FFF7EA;margin-bottom:14px">Öffnungszeiten Gaststätte</h3>
+      <table>
+        <tr><td>Montag</td><td>Ruhetag</td></tr>
+        <tr><td>Dienstag</td><td>18 bis 23 Uhr</td></tr>
+        <tr><td>Mittwoch</td><td>Ruhetag</td></tr>
+        <tr><td>Donnerstag</td><td>18 bis 24 Uhr</td></tr>
+        <tr><td>Freitag</td><td>18 bis 24 Uhr</td></tr>
+        <tr><td>Samstag</td><td>18 bis 24 Uhr</td></tr>
+        <tr><td>Sonntag</td><td>18 bis 24 Uhr</td></tr>
+      </table>
+      <small>Laut Google-Profil, Stand Oktober 2026. Feiern im Saal nach Absprache.</small>
+    </div>
+    <div>
+      <h3 style="color:#FFF7EA;margin-bottom:14px">Ihre Feier</h3>
+      <p>Wunschtermin ins Terminbuch eintragen, Haus Räckers meldet sich bei Ihnen.</p>
+      <a class="btn btn-gruen" href="#terminbuch">Zum Terminbuch</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="fuss" style="grid-column:1/-1">
+      <span>Unverbindlicher Entwurf von Leon Oßendorf, kein offizieller Auftritt von Haus Räckers. Beispielbilder: M F, Nadia Valko, Saile Ilyas, Arlind Photography (Unsplash).</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="handyleiste">
+  <a class="btn anrufen" href="tel:+49256181730">Anrufen</a>
+  <a class="btn btn-gruen" href="#terminbuch">Termin eintragen</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

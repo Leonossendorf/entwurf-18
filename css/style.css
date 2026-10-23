@@ -1,0 +1,279 @@
+@font-face { font-family: "Alegreya"; src: url("../fonts/alegreya-var.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
+@font-face { font-family: "Alegreya"; src: url("../fonts/alegreya-var-italic.woff2") format("woff2"); font-weight: 400 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Alegreya Sans"; src: url("../fonts/alegreyasans-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Alegreya Sans"; src: url("../fonts/alegreyasans-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Alegreya Sans"; src: url("../fonts/alegreyasans-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Alegreya Sans SC"; src: url("../fonts/alegreyasanssc-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Kalam"; src: url("../fonts/kalam-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Kalam"; src: url("../fonts/kalam-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --klinker: #8C3A2B; --klinker-d: #6A2A1F; --klinker-h: #B5583F;
+  --saal: #34503F; --saal-d: #233829; --saal-h: #4F7560;
+  --holz: #5B3A24; --holz-d: #3A2516; --holz-h: #8A5A36;
+  --papier: #FBF6EA; --papier-2: #F3EAD6; --linie: #C9D2E2; --rand: #D98C7E;
+  --tinte: #233A78; --tinte-h: #2F4C98; --rot-tinte: #A8322A;
+  --creme: #F6EFE2; --ink: #2A211B; --ink-2: #5E5248; --stein: #E2D8C6;
+  --maxw: 1200px;
+  --wood: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='420'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0028 0.16' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.05 0 0 0 0 0.02 2.6 0 0 0 -1.15'/%3E%3C/filter%3E%3Crect width='1600' height='420' filter='url(%23g)'/%3E%3C/svg%3E");
+  --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.36 0 0 0 0 0.22 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23p)'/%3E%3C/svg%3E");
+  --leder: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='l'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.35' numOctaves='4' seed='8'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23l)'/%3E%3C/svg%3E");
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font: 400 18px/1.6 "Alegreya Sans", system-ui, sans-serif; color: var(--ink); background: var(--creme); }
+img { max-width: 100%; display: block; }
+a { color: var(--klinker); }
+h1, h2, h3 { font-family: "Alegreya", Georgia, serif; font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -.005em; }
+h2 { font-size: clamp(30px, 4vw, 44px); color: var(--holz-d); }
+h3 { font-size: 23px; color: var(--holz-d); }
+p { margin: 0 0 1em; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.eyebrow { font: 700 14px/1.2 "Alegreya Sans SC", "Alegreya Sans", sans-serif; letter-spacing: .14em; color: var(--klinker); margin: 0 0 12px; display: block; }
+.btn { display: inline-flex; align-items: center; gap: 10px; min-height: 50px; padding: 0 24px; border-radius: 99px; font: 700 17px/1 "Alegreya Sans", sans-serif; text-decoration: none; border: 0; cursor: pointer; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+.btn:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid #E7B85C; outline-offset: 3px; }
+.btn-gruen { background: var(--saal); color: #fff; box-shadow: 0 2px 0 var(--saal-d); }
+.btn-gruen:hover { background: var(--saal-h); transform: translateY(-1px); }
+.btn-hell { background: transparent; color: var(--creme); box-shadow: inset 0 0 0 2px rgba(246,239,226,.55); }
+.btn-hell:hover { box-shadow: inset 0 0 0 2px var(--creme); }
+
+/* Entwurf-Hinweis */
+.entwurf-band { background: var(--ink); color: #EFE6D6; font-size: 14px; text-align: center; padding: 7px 16px; }
+.entwurf-band b { color: #F2C98A; }
+
+/* Kopf */
+.kopf { position: sticky; top: 0; z-index: 40; background: rgba(246,239,226,.96); backdrop-filter: blur(6px); border-bottom: 1px solid var(--stein); }
+.kopf .wrap { display: flex; align-items: center; gap: 28px; height: 74px; }
+.marke { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--holz-d); }
+.marke svg { width: 40px; height: 34px; flex: none; }
+.marke b { display: block; font: 700 24px/1 "Alegreya", serif; }
+.marke small { display: block; font: 500 13.5px/1.2 "Alegreya Sans", sans-serif; color: var(--ink-2); margin-top: 3px; letter-spacing: .02em; }
+.nav { display: flex; gap: 26px; margin-left: auto; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 17px; }
+.nav a:hover { color: var(--klinker); }
+.kopf .btn { min-height: 44px; padding: 0 20px; font-size: 16px; }
+.kopf .tel { display: none; }
+
+/* Hero: das Buch auf der Theke */
+.hero { position: relative; color: var(--creme); overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,0) 30%, rgba(0,0,0,.18)), var(--wood) 0 0 / 1600px 420px, linear-gradient(180deg, #5E3C25, #4A2E1C 60%, #3B2416); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: linear-gradient(180deg, rgba(255,226,180,.16), rgba(0,0,0,.35)); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: center; padding-top: 64px; padding-bottom: 76px; }
+.hero .eyebrow { color: #EBC48A; }
+.hero h1 { font-size: clamp(42px, 5.4vw, 66px); color: #FFF7EA; }
+.hero h1 em { display: block; font-style: italic; font-weight: 500; color: #EBC48A; font-size: .62em; margin-top: 10px; }
+.hero .lead { font-size: 20px; line-height: 1.55; color: #EFE3CF; margin: 22px 0 26px; max-width: 30em; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .fakten { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 28px 0 0; padding: 0; list-style: none; font-size: 15.5px; color: #E3D3BA; }
+.hero .fakten li { display: flex; align-items: center; gap: 7px; }
+.hero .fakten li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #D69A5B; }
+.hero .stern { color: #F2C98A; font-weight: 700; }
+
+/* Das Buch */
+.buch { position: relative; padding: 14px; border-radius: 10px 12px 12px 10px;
+  background: var(--leder), radial-gradient(120% 140% at 30% 10%, #3E5C49, #2A4033 55%, #1D2E24);
+  box-shadow: 0 30px 50px -18px rgba(0,0,0,.65), 0 8px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06), inset 0 2px 2px rgba(255,255,255,.08);
+  transform: rotate(-1.2deg); }
+.buch::before { content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px; width: 26px; margin-left: -13px; background: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,.35) 45%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0)); border-radius: 6px; }
+.seiten { position: relative; display: grid; grid-template-columns: 1fr 1fr; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.25); }
+.seiten::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 60px; margin-left: -30px; pointer-events: none;
+  background: linear-gradient(90deg, rgba(90,60,30,0), rgba(90,60,30,.16) 40%, rgba(60,40,20,.34) 50%, rgba(90,60,30,.16) 60%, rgba(90,60,30,0)); }
+.seite { position: relative; color: var(--ink); padding: 26px 28px 30px; min-height: 520px;
+  background: var(--paper), linear-gradient(180deg, var(--papier), var(--papier-2)); }
+.seite.links { border-radius: 4px 0 0 4px; box-shadow: inset -10px 0 18px -12px rgba(80,50,20,.35); }
+.seite.rechts { border-radius: 0 4px 4px 0; box-shadow: inset 10px 0 18px -12px rgba(80,50,20,.35); }
+.seite.rechts::before { content: ""; position: absolute; top: 0; bottom: 0; left: 64px; width: 1.5px; background: var(--rand); opacity: .7; }
+.seite .kopfzeile { display: flex; justify-content: space-between; align-items: baseline; font: 700 12.5px/1 "Alegreya Sans SC", sans-serif; letter-spacing: .16em; color: #8A7458; margin-bottom: 14px; }
+.baendchen { position: absolute; top: -14px; right: 27%; width: 16px; height: 56px; z-index: 3; pointer-events: none;
+  background: linear-gradient(90deg, #7A2B22, #A63B2E 45%, #7A2B22); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%); box-shadow: 0 2px 3px rgba(0,0,0,.25); }
+
+/* Kalender auf der linken Seite */
+.monat { display: flex; align-items: center; justify-content: space-between; margin: 0 0 6px; }
+.monat h2 { white-space: nowrap; font: 700 27px/1.1 "Kalam", cursive; color: var(--tinte); letter-spacing: 0; }
+.monat button { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid #CDBB9D; background: rgba(255,255,255,.4); color: #6E5A40; font-size: 20px; cursor: pointer; transition: background .2s; }
+.monat button:hover { background: #fff; }
+.monat button:disabled { opacity: .3; cursor: default; }
+.wt, .tage { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+.wt span { font: 700 12.5px/34px "Alegreya Sans SC", sans-serif; letter-spacing: .08em; color: #8A7458; }
+.tage button { position: relative; height: 44px; border: 0; background: none; font: 400 21px/1 "Kalam", cursive; color: #3B3127; cursor: pointer; border-radius: 6px; padding: 0; }
+.tage button:hover:not(:disabled) { background: rgba(35,58,120,.07); }
+.tage button:disabled { color: #C4B59C; cursor: default; }
+.tage button.wochenende { color: var(--klinker-d); }
+.tage button svg { position: absolute; left: 50%; top: 50%; width: 46px; height: 40px; margin: -20px 0 0 -23px; pointer-events: none; overflow: visible; }
+.tage button svg path { fill: none; stroke: var(--rot-tinte); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 140; stroke-dashoffset: 140; }
+.tage button.gewaehlt svg path { animation: kringel .7s ease-out forwards; }
+@keyframes kringel { to { stroke-dashoffset: 0; } }
+.notiz { margin-top: 16px; font: 400 18px/34px "Kalam", cursive; color: #6E5A40; }
+.notiz b { color: var(--tinte); font-weight: 700; }
+.zeiten { margin-top: 10px; font-size: 15px; line-height: 1.45; color: var(--ink-2); border-top: 1px dashed #CDBB9D; padding-top: 12px; }
+.zeiten b { color: var(--ink); }
+
+/* Formular auf der rechten Seite */
+.eintrag { padding-left: 50px; }
+.zeile { display: block; position: relative; margin: 0 0 4px; min-height: 34px; border-bottom: 1px solid var(--linie); }
+.zeile.ohne { border-bottom: 0; }
+.zeile > span.lbl { display: block; font: 700 12px/1 "Alegreya Sans SC", sans-serif; letter-spacing: .14em; color: #8A7458; padding-top: 9px; }
+.zeile input, .zeile textarea { width: 100%; border: 0; background: transparent; font: 400 22px/34px "Kalam", cursive; color: var(--tinte); padding: 0 2px; margin: 0; height: 34px; }
+.zeile textarea { height: 68px; resize: none; display: block; }
+.zeile input::placeholder, .zeile textarea::placeholder { color: #B8AA92; }
+.termin-anzeige { font: 700 22px/34px "Kalam", cursive; color: var(--tinte); min-height: 34px; }
+.termin-anzeige.leer { color: #B8AA92; font-weight: 400; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px 6px; padding: 6px 0 6px; }
+.chip { border: 1.5px solid #CDBB9D; background: rgba(255,255,255,.55); border-radius: 99px; padding: 0 12px; height: 32px; font: 500 15px/1 "Alegreya Sans", sans-serif; color: var(--ink); cursor: pointer; transition: background .2s, border-color .2s, color .2s; }
+.chip:hover { border-color: #A88F6A; }
+.chip[aria-pressed="true"] { background: var(--saal); border-color: var(--saal); color: #fff; }
+.zwei { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+.eintragen .btn { white-space: nowrap; padding: 0 20px; }
+.eintragen { margin-top: 14px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.eintragen small { font-size: 13.5px; color: var(--ink-2); line-height: 1.3; }
+.stempel { position: absolute; right: 14px; top: 6px; width: 150px; height: 70px; display: grid; place-items: center; text-align: center; color: var(--rot-tinte);
+  border: 3px solid currentColor; border-radius: 10px; font: 700 15px/1.15 "Alegreya Sans SC", sans-serif; letter-spacing: .08em; transform: rotate(-9deg) scale(1.15); opacity: 0; pointer-events: none;
+  mix-blend-mode: multiply; transition: opacity .35s ease, transform .35s ease; box-shadow: inset 0 0 0 3px rgba(255,255,255,.0); }
+.stempel span { display: block; font: 400 13px/1.2 "Kalam", cursive; letter-spacing: 0; text-transform: none; }
+.stempel.an { opacity: .82; transform: rotate(-9deg) scale(1); }
+.eingetragen-info { display: none; margin-top: 10px; font-size: 14.5px; color: var(--saal-d); background: rgba(52,80,63,.09); border-radius: 8px; padding: 8px 12px; }
+.eingetragen-info.an { display: block; }
+
+/* Abschnitte */
+section { scroll-margin-top: 80px; }
+.abschnitt { padding: 92px 0; }
+.kopf-text { max-width: 720px; margin-bottom: 40px; }
+.kopf-text p { color: var(--ink-2); font-size: 19px; margin-top: 14px; }
+
+/* Anlaesse */
+.anlaesse { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.anlass { position: relative; background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid var(--stein); display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease; }
+.anlass:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -18px rgba(58,37,22,.45); }
+.anlass figure { margin: 0; position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #ddd; }
+.anlass figure img { width: 100%; height: 100%; object-fit: cover; }
+.beispiel { position: absolute; left: 10px; bottom: 10px; background: rgba(28,20,14,.72); color: #F3E8D6; font-size: 12px; padding: 3px 8px; border-radius: 4px; letter-spacing: .02em; }
+.anlass .inhalt { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.anlass h3 { margin-bottom: 8px; }
+.anlass p { color: var(--ink-2); font-size: 16.5px; margin-bottom: 14px; }
+.anlass blockquote { margin: 0 0 16px; font: italic 500 17px/1.45 "Alegreya", serif; color: var(--holz); }
+.anlass blockquote cite { display: block; font: 400 13px/1.3 "Alegreya Sans", sans-serif; color: #8A7A6A; margin-top: 4px; font-style: normal; }
+.anlass .mehr { margin-top: auto; align-self: flex-start; background: none; border: 0; padding: 6px 0; font: 700 16px/1.2 "Alegreya Sans", sans-serif; color: var(--saal); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.anlass .mehr::after { content: "→"; transition: transform .25s; }
+.anlass .mehr:hover::after { transform: translateX(4px); }
+.anlass.illu figure { background: linear-gradient(180deg, #F3E7D2, #E8D7BB); display: grid; place-items: center; }
+.anlass.illu figure svg { width: 82%; height: auto; }
+
+/* Dorfleben: Zeitungsausschnitte */
+.dorf { background: linear-gradient(180deg, #EFE5D3, #F6EFE2); border-top: 1px solid var(--stein); border-bottom: 1px solid var(--stein); }
+.dorf .wrap { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: start; }
+.dorf .kopf-text { margin: 0; position: sticky; top: 110px; }
+.ausschnitte { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.ausschnitt { background: #FCF8EF; padding: 20px 22px 18px; box-shadow: 0 1px 0 rgba(0,0,0,.05), 0 10px 22px -16px rgba(58,37,22,.5); position: relative; }
+.ausschnitt:nth-child(1) { transform: rotate(-1deg); }
+.ausschnitt:nth-child(2) { transform: rotate(.8deg); margin-top: 26px; }
+.ausschnitt:nth-child(3) { transform: rotate(.6deg); }
+.ausschnitt:nth-child(4) { transform: rotate(-.7deg); margin-top: 26px; }
+.ausschnitt::before { content: ""; position: absolute; top: -9px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(235,222,190,.8); transform: rotate(-2deg); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.ausschnitt .q { font: 700 12.5px/1.2 "Alegreya Sans SC", sans-serif; letter-spacing: .12em; color: #8A7458; border-bottom: 1px solid #E2D6BF; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; gap: 8px; }
+.ausschnitt h3 { font-size: 21px; margin-bottom: 6px; }
+.ausschnitt p { font-size: 16px; color: var(--ink-2); margin: 0; }
+
+/* Kegelbahn */
+.kegel .wrap { display: grid; grid-template-columns: 6fr 5fr; gap: 64px; align-items: center; }
+.bahn { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 5 / 4; background: linear-gradient(180deg, #2C1C12, #4A2F1D); box-shadow: 0 24px 40px -24px rgba(0,0,0,.6); }
+.bahn svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; padding: 0; list-style: none; }
+.pills li { background: #fff; border: 1px solid var(--stein); border-radius: 99px; padding: 6px 14px; font-size: 15.5px; }
+
+/* Partyservice */
+.party { background: var(--saal-d); color: #EAF0EA; }
+.party .wrap { display: grid; grid-template-columns: 5fr 6fr; gap: 64px; align-items: center; }
+.party h2 { color: #FFF7EA; }
+.party .eyebrow { color: #E7B98A; }
+.party p { color: #D5DFD7; font-size: 18.5px; }
+.party figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3; }
+.party figure img { width: 100%; height: 100%; object-fit: cover; }
+.saison { margin: 24px 0 28px; padding: 18px 20px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); }
+.saison b { display: block; font: 700 21px/1.2 "Alegreya", serif; color: #FFF3DF; margin-bottom: 4px; }
+.saison span { color: #C8D4CB; font-size: 16.5px; }
+
+/* Stimmen */
+.stimmen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.stimme { background: #fff; border-radius: 14px; padding: 26px 26px 22px; border: 1px solid var(--stein); }
+.stimme p { font: italic 500 21px/1.42 "Alegreya", serif; color: var(--holz-d); margin-bottom: 12px; }
+.stimme span { font-size: 14px; color: #8A7A6A; }
+.bewertung { display: flex; align-items: baseline; gap: 12px; margin-top: 10px; }
+.bewertung b { font: 700 46px/1 "Alegreya", serif; color: var(--klinker); }
+.bewertung span { color: var(--ink-2); }
+
+/* Garten + Haus */
+.haus .wrap { display: grid; grid-template-columns: 4fr 7fr; gap: 56px; align-items: center; }
+.haus figure { margin: 0; position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 3 / 4; }
+.haus figure img { width: 100%; height: 100%; object-fit: cover; }
+.ausstattung { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; margin: 26px 0 0; padding: 0; list-style: none; }
+.ausstattung li { padding-left: 30px; position: relative; font-size: 17px; }
+.ausstattung li b { display: block; font-family: "Alegreya", serif; font-size: 19px; color: var(--holz-d); }
+.ausstattung li span { color: var(--ink-2); font-size: 16px; }
+.ausstattung li::before { content: ""; position: absolute; left: 2px; top: 6px; width: 8px; height: 14px; border: solid var(--klinker); border-width: 0 3px 3px 0; transform: rotate(40deg); }
+
+/* Kontakt + Fuss */
+.kontakt { background: var(--holz-d); color: #EADFCF; padding: 80px 0 40px; }
+.kontakt .wrap { display: grid; grid-template-columns: 5fr 4fr 3fr; gap: 48px; }
+.kontakt h2 { color: #FFF7EA; margin-bottom: 18px; }
+.kontakt a { color: #F2C98A; }
+.kontakt .gross { font: 700 28px/1.2 "Alegreya", serif; color: #fff; text-decoration: none; display: inline-block; margin-bottom: 6px; }
+.kontakt table { border-collapse: collapse; font-size: 16.5px; }
+.kontakt td { padding: 3px 18px 3px 0; vertical-align: top; }
+.kontakt td:first-child { color: #BFAE97; }
+.kontakt small { color: #BFAE97; font-size: 13.5px; display: block; margin-top: 10px; line-height: 1.4; }
+.fuss { margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); font-size: 14px; color: #BFAE97; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+.fuss a { color: #E5D3B6; }
+
+/* Handy-Leiste */
+.handyleiste { display: none; }
+
+@media (max-width: 1060px) {
+  .nav { display: none; }
+  .kopf .wrap { gap: 14px; }
+  .kopf .anfragen-btn { margin-left: auto; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 36px; padding-top: 44px; }
+  .buch { transform: none; }
+  .dorf .wrap, .kegel .wrap, .party .wrap, .haus .wrap { grid-template-columns: 1fr; gap: 36px; }
+  .dorf .kopf-text { position: static; }
+  .anlaesse, .stimmen-grid { grid-template-columns: 1fr 1fr; }
+  .kontakt .wrap { grid-template-columns: 1fr 1fr; }
+  .haus figure { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 720px) {
+  body { font-size: 17px; padding-bottom: 72px; }
+  .wrap { padding: 0 16px; }
+  .kopf .wrap { height: 64px; }
+  .marke b { font-size: 21px; }
+  .marke small { font-size: 12.5px; }
+  .kopf .anfragen-btn { display: none; }
+  .kopf .tel { display: inline-flex; margin-left: auto; min-height: 42px; padding: 0 16px; }
+  .hero .wrap { padding-top: 34px; padding-bottom: 44px; }
+  .hero .lead { font-size: 18px; }
+  .hero-cta .btn { flex: 1 1 auto; justify-content: center; }
+  .buch { padding: 9px; margin: 0 -4px; }
+  .buch::before, .seiten::after { display: none; }
+  .seiten { grid-template-columns: 1fr; }
+  .seite { min-height: 0; padding: 20px 18px 24px; }
+  .seite.links { border-radius: 4px 4px 0 0; box-shadow: inset 0 -10px 16px -12px rgba(80,50,20,.35); }
+  .seite.rechts { border-radius: 0 0 4px 4px; box-shadow: none; border-top: 1px dashed #CDBB9D; }
+  .seite.rechts::before { left: 34px; }
+  .eintrag { padding-left: 26px; }
+  .baendchen { right: auto; left: 47%; height: 44px; }
+  .tage button { height: 42px; font-size: 20px; }
+  .zwei { grid-template-columns: 1fr; }
+  .stempel { right: 8px; top: 4px; }
+  .abschnitt { padding: 64px 0; }
+  .anlaesse, .stimmen-grid, .ausschnitte, .ausstattung { grid-template-columns: 1fr; }
+  .ausschnitt:nth-child(2), .ausschnitt:nth-child(4) { margin-top: 0; }
+  .kontakt .wrap { grid-template-columns: 1fr; gap: 34px; }
+  .handyleiste { display: grid; grid-template-columns: 1fr 1.25fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); background: rgba(246,239,226,.97); border-top: 1px solid var(--stein); box-shadow: 0 -6px 18px -10px rgba(0,0,0,.3); }
+  .handyleiste a { min-height: 50px; justify-content: center; font-size: 16px; padding: 0 12px; }
+  .handyleiste .anrufen { background: #fff; color: var(--saal-d); box-shadow: inset 0 0 0 2px var(--saal); }
+  .handyleiste .anrufen small { font-weight: 500; font-size: 13px; color: var(--ink-2); margin-left: -4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .tage button.gewaehlt svg path { stroke-dashoffset: 0; }
+  html { scroll-behavior: auto; }
+}

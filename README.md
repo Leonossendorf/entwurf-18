@@ -1,2 +1,3 @@
 # entwurf-18
-Entwurf
+
+Unverbindlicher Entwurf von Leon Oßendorf (noindex). Kein offizieller Auftritt des Betriebs.
